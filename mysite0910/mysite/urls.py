@@ -14,16 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 import sys
-#sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
+sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
 for s in sys.path:
     print s
 
     #print sys.path.index(s)
-#sys.path[0]='C:\Users\luck\Desktop\django_practice\mysite0910'
+
 #print sys.path[0]
 #from restaurants import views
 print 'ooooo'
-from mysite0910 import views
+import settings
+
+#from mysite import views
+import restaurants
 from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
 import os
 
