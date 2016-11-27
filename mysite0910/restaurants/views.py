@@ -2,11 +2,11 @@
 
 # Create your views here.
 from django.shortcuts import render_to_response
-from  restaurants.models import Restaurant,Comment
+from  models import Restaurant,Comment
 from django.http import HttpResponse,HttpResponseRedirect
 from  django.utils import timezone
 from  django.template import RequestContext
-from restaurants.forms import CommentForm
+from forms import CommentForm
 from django.contrib import auth
 import datetime
 

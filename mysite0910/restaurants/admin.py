@@ -1,7 +1,9 @@
 # Register your models here.
 from  django.contrib  import admin
+import sys
+print sys.path
 
-from  restaurants.models import  Restaurant,Food,Comment
+from  models import  Restaurant,Food,Comment
 
 
 class RestaurantAdmin(admin.ModelAdmin):

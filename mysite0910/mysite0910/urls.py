@@ -13,9 +13,27 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+import sys
+#sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
+for s in sys.path:
+    print s
+
+    #print sys.path.index(s)
+#sys.path[0]='C:\Users\luck\Desktop\django_practice\mysite0910'
+#print sys.path[0]
+#from restaurants import views
+print 'ooooo'
+from mysite0910 import views
+from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
+import os
+
+print os.environ['DJANGO_SETTINGS_MODULE']
+#os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+
+
 from django.conf.urls import include, url
 from django.contrib import admin
-from  mysite0910.views import test
+from  views import test
 #from views import menu
 from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
 admin.autodiscover()
