@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 
 import os
 
-print os.environ['DJANGO_SETTINGS_MODULE']
+#print os.environ['DJANGO_SETTINGS_MODULE']
 
 def  menu123(requests):
     food1={'name':'番茄炒蛋','price':60,'comment':'好吃','is_spicy':False}

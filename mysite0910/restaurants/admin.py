@@ -2,13 +2,9 @@
 from  django.contrib  import admin
 
 
-import os
-os.environ['DJANGO_SETTINGS_MODULE']='mysite.settings'
-#print os.environ['DJANGO_SETTINGS_MODULE']
-import sys
-sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
-print sys.path
-import mysite0910
+
+
+
 
 from  models import  Restaurant,Food,Comment
 

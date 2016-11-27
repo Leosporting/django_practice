@@ -13,24 +13,23 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-import sys
-sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
-for s in sys.path:
-    print s
-
+#import sys
+#sys.path.append('C:\Users\luck\Desktop\django_practice\mysite0910')
+#for s in sys.path:
+    #print s
     #print sys.path.index(s)
 
 #print sys.path[0]
 #from restaurants import views
-print 'ooooo'
-import settings
+
+
 
 #from mysite import views
-import restaurants
-from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
-import os
 
-print os.environ['DJANGO_SETTINGS_MODULE']
+from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
+#import os
+
+#print os.environ['DJANGO_SETTINGS_MODULE']
 #os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 

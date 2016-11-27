@@ -11,9 +11,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+#SECRET_KEY = 'MY SECRET KEY'
+#import django
+
+#django.setup()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+#import django
+#django.setup()
 BASE_DIR = os.path.dirname(os.path.dirname((__file__)))
 TEMPLATES_DIRS = (os.path.join (BASE_DIR ,'templates'))
 #print  BASE_DIR
@@ -39,7 +46,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'restaurants',#安裝resturant應用
+    'restaurants',#安裝resturants應用
 )
 
 MIDDLEWARE_CLASSES = (
