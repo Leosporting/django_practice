@@ -24,7 +24,7 @@ Including another URLconf
 
 
 
-#from mysite import views
+#from mysite0910 import views
 
 from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
 #import os
