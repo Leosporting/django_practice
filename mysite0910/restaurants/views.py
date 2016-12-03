@@ -3,7 +3,7 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from  models import Restaurant,Comment
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,HttpRequest
 from  django.utils import timezone
 from  django.template import RequestContext
 from forms import CommentForm
@@ -74,6 +74,7 @@ def  menu123(request):
 
 def  list_restaurants(request):
     restaurants=Restaurant.objects.all()
+    request.session['restaurants']=restaurants
     return render_to_response('restaurants_list.html', locals())
 
 #menu(123)
@@ -154,6 +155,7 @@ def  comment(request,restaurant_id):
 
     return  render_to_response('comments.html',RequestContext(request,locals()))
 
+
 def set_c(request):
     response = HttpResponse('Set  your  lucky_number as 8')
     response.set_cookie('lucky_number',8)
@@ -166,12 +168,49 @@ def get_c(request):
         return HttpResponse('No cookies')
 
 def use_session(request):
-    request.session['lucky_number']=8
+    request.session['lucky_number']=88899
     if 'lucky_number' in request.session:
         lucky_number=request.session['lucky_number']
-        response=HttpResponse('Your lucky_number is {0}'.format(lucky_number))
+        response=HttpResponse('Your lucky_number is {0}, {1}'.format(lucky_number,request.session))
         del request.session['lucky_number']
         return response
+
+from django.contrib.sessions.models import Session
+
+def  test_cookie(request):
+    #HttpRequest
+    request.session.set_test_cookie()
+    print 'set_test_cookie :ok'
+    request.session.test_cookie_worked()
+    print 'test_cookie_worked :ok'
+    request.session.delete_test_cookie()
+    print 'delete_test_cookie :ok'
+
+
+def session_test(request):
+    test_cookie(request)
+    #response = HttpResponse('Set  your  lucky_number as 999')
+    #response.set_cookie('lucky_number', 999)
+    #return response
+    #return HttpResponse(request.session)
+    if 'sessionid' not in request.COOKIES:
+        request.session['lucky_number'] = 88899
+        if 'lucky_number' in request.session:
+            lucky_number = request.session['lucky_number']
+            #response = HttpResponse('Your lucky_number is {0}, {1}'.format(lucky_number, request.session))
+
+            return HttpResponse('Because no  session  exist , so  set it  ')
+            #return response
+
+    sid=request.COOKIES['sessionid']
+    sid2=request.session.session_key
+    s=Session.objects.get(pk=sid)
+    s_info='Session ID:{0} +<br>Session ID2:{1}+<br> Expire_date:{2}+<br>Data:{3}  ,session_luckynumber:{4}'.\
+        format(sid,sid2,s.expire_date,s.get_decoded(),request.session['lucky_number'])
+    return HttpResponse(s_info)
+
+
+
 
 
 

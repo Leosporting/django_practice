@@ -27,3 +27,6 @@ class Comment(models.Model):
     email=models.EmailField(max_length=255)
     date_time=models.DateTimeField()
     restaurant=models.ForeignKey(Restaurant)
+
+    def __unicode__(self):
+        return self.content

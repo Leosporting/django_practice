@@ -36,6 +36,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL="/index/"
+SESSION_SERIALIZER='django.contrib.sessions.serializers'+'.PickleSerializer'
+
 
 # Application definition
 

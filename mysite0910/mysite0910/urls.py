@@ -36,8 +36,8 @@ from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,g
 from django.conf.urls import include, url
 from django.contrib import admin
 from  views import test
-#from views import menu
-from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout
+#from views import menuset_c
+from restaurants.views import menu,list_restaurants,meta,welcome,comment,set_c,get_c,use_session,index,login,logout,session_test
 admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -47,9 +47,13 @@ urlpatterns = [
     url(r'^test/$',test),
     url(r'^meta/$',meta),
     url(r'^welcome/',welcome),
+    url(r'^cookiespage/', get_c),
+    url(r'^setcookies/', set_c),
+    url(r'^session_test/', session_test),
     url(r'^comment/(\d{1,5})/$', comment),
     url(r'^test_session/$',use_session ),
     url(r'^index/$', index),
     url(r'^accounts/login/$',login),
     url(r'^accounts/logout/$',logout)
+
 ]
