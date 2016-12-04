@@ -2,7 +2,13 @@
 <html lang="en">
 
 <body>
+
+{% comment %}
+    多行註解
+'django.contrib.auth.views.login'
+    {% endcomment  %}
 <form   action="{% url 'django.contrib.auth.views.login' %}" method="post">
+    {% csrf_token %}
   <table>
       {{ form.as_table }}
   </table>

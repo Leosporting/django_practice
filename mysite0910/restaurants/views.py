@@ -201,12 +201,19 @@ def session_test(request):
 
             return HttpResponse('Because no  session  exist , so  set it  ')
             #return response
+    z=[]
+    c=[]
+    for s in request.COOKIES:
+        z+=[s]
+    for q in request.session.session_key:
+        c+=[q]
+
 
     sid=request.COOKIES['sessionid']
     sid2=request.session.session_key
     s=Session.objects.get(pk=sid)
-    s_info='Session ID:{0} +<br>Session ID2:{1}+<br> Expire_date:{2}+<br>Data:{3}  ,session_luckynumber:{4}'.\
-        format(sid,sid2,s.expire_date,s.get_decoded(),request.session['lucky_number'])
+    s_info='Session ID:{0} +<br>Session ID2:{1}+<br> Expire_date:{2}+<br>Data:{3}  ,session_luckynumber:{4}  co:{5} , se:{6}'.\
+        format(sid,sid2,s.expire_date,s.get_decoded(),request.session['lucky_number'],z,c)
     return HttpResponse(s_info)
 
 
